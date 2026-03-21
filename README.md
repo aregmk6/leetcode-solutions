@@ -11,6 +11,12 @@ in another way: 1<-2<-3. This is very easy to do with pointers.
 * interesting way to create a hash, is to use the built in hash of a string, and just converting the histogram into a string, with some
 delimiting character, for example "$".
 
+## longest consecutive subsequence
+* using a hash *set* (only keys). Putting in all the values. Going through the values, checking if it's the first number in a possible
+consecutive sequence, if so, then start looking for all of the other numbers in the sequence and counting them. 
+* because you check if it's the first element and only then you start iterating on a sequence, then it won't allow for counting a sequence
+twice.
+
 # algorthims
 ## binary search
 * it's better to use mid = left + (right - left) / 2, instead of mid = (right + left) / 2, to avoid overflow for very large intergers. This is

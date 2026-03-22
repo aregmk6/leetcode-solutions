@@ -1,3 +1,6 @@
+# TODO 
+[ ] - try to solve the Evaluate Reverse Polish Notation problem with recursion.
+
 # Problems
 ## Reverse k-nodes
 * recursion is very useful here. Which is basically the same as using a stack or queue, but with less space usage.
@@ -16,6 +19,9 @@ delimiting character, for example "$".
 consecutive sequence, if so, then start looking for all of the other numbers in the sequence and counting them. 
 * because you check if it's the first element and only then you start iterating on a sequence, then it won't allow for counting a sequence
 twice.
+
+## Evaluate Reverse Polish Notation
+* to solve with recursion go from right to left. In general for recursion, it's often easier to start from the end.
 
 # algorthims
 ## binary search
@@ -70,4 +76,5 @@ the elements.
 * you can return two arrays, by the other one being one of the parameters. They give you a pointer to a pointer, when that first pointer is the
 address at which the array needs to go. You must allocate that array and return it at that address. To return it, you dereference the ** pointer
 given to you, and put in the array you created.
+* to solve with recursion go from the end to the beginning, it's often eaiser. Like you would do DP, you start from the end and build backwards.
 

@@ -23,6 +23,15 @@ twice.
 ## Evaluate Reverse Polish Notation
 * to solve with recursion go from right to left. In general for recursion, it's often easier to start from the end.
 
+## generate paranthesis
+* Using two helper argumetns for each paran type. 
+* Add a conditional for adding a closing bracket.
+* Use a shared string to prevent copying.
+
+## divide two integers
+* handle two edge cases of INT_MIN divided by 1 and -1.
+* before doing the division, move to an unsigned int domain.
+
 # algorthims
 ## binary search
 * it's better to use mid = left + (right - left) / 2, instead of mid = (right + left) / 2, to avoid overflow for very large intergers. This is

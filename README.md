@@ -2,6 +2,10 @@
 [ ] - try to solve the Evaluate Reverse Polish Notation problem with recursion.
 
 # Problems
+## biggest area of water
+* these kinds of problems are usually solved with two pointers, when you need to figure out when to move each one.
+* in this case, move the one that is pointing at the shorter wall.
+
 ## Reverse k-nodes
 * recursion is very useful here. Which is basically the same as using a stack or queue, but with less space usage.
 * to do it with no extra space, just look at this, lets say you want to reverse 1->2->3. You think about it like 3->2->1. Ok. but look at it
@@ -55,6 +59,12 @@ done. Swap the pivot with the item at the left pointer.
 * KMP pattern matching algorithm for linear time matching.
 * Build LPS array... *TODO*
 
+## Boyer - Moores voting algorithm
+* You have a candidate and votes. When votes == 0, you set candidate = array[i] and increment votes. As soon as array[i] != candidate, you
+decrement votes.
+* This way you get rid of the numbers that are not majority numbers.
+* if it's promissed that it exists, we don't even need a second pass.
+
 
 # data structure basics
 ## heaps
@@ -65,6 +75,9 @@ done. Swap the pivot with the item at the left pointer.
 
 ## hash table
 * a classic string hash function is a polynomial hash function.
+
+## LPS array
+* *TODO*
 
 # ways of thinking about things
 * It's good to think about arrays, their elements and the indices like so:

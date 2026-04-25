@@ -2,6 +2,25 @@
 [ ] - try to solve the Evaluate Reverse Polish Notation problem with recursion.
 
 # Problems
+## Print in Order
+* If you don't broadcast the signal you will get a deadlock.
+* why? Well, if thread 2 and 3 already hit the Cond.wait(). And only now thread 1 comes and calls signal. Thread 3 (not 2) wakes up, and only it
+(bacause it's a signal) and tries to continue but doesn't because the condition is not met yet and goes back to sleep. Thread 3 is waiting for 
+thread 2, but it's asleep, and there is no thread that exists to signal it.
+
+## Print Foo Bar 
+* Use *two* channels instead of busy waiting.
+
+## 3 sum
+* do the two sum, after the hook point.
+* if the current hook number is the same as the previous, just skip it.
+* if the current left number is the same as the previous, just skip it.
+* the reason that is enough to avoid dups is because you sort the array first!
+* also, in the inner loop, when you find a sum, and continue, you do left++ *and* right--, why? Because if you found a hook + left + right = sum
+, and you only decrease left (or only increase right), then you can get a dup sum, because if sum and left stay the same, there is only one
+option to get the sum again, which is the same right as before.
+* you underastimated this question, sketch it out first.
+
 ## biggest area of water
 * these kinds of problems are usually solved with two pointers, when you need to figure out when to move each one.
 * in this case, move the one that is pointing at the shorter wall.
@@ -37,6 +56,20 @@ twice.
 * before doing the division, move to an unsigned int domain.
 
 # algorthims
+## quick sort 
+* you stop when there are two elements.
+* partition and then call recursivaly.
+
+## partition
+* pivot is the last element.
+* two pointers i = -1, and j = 0.
+* Repeat until j <= len - 2 (second to last element).
+* increment j:
+    * if arr[j] < pivot: 
+        * increment i
+            * swap arr[i] and arr[j]
+* swap arr[i+1] and arr[len-1]
+
 ## binary search
 * it's better to use mid = left + (right - left) / 2, instead of mid = (right + left) / 2, to avoid overflow for very large intergers. This is
 also true for Merge Sort.

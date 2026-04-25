@@ -1,5 +1,3 @@
-package main
-
 import (
 	"fmt"
 	"strings"
@@ -101,11 +99,3 @@ func numberToWords(num int) string {
 	return str.String()[:len(str.String())-1]
 }
 
-func main() {
-	var num int
-	for {
-		fmt.Println("Enter Number:")
-		fmt.Scan(&num)
-		fmt.Println(numberToWords(num))
-	}
-}

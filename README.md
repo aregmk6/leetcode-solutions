@@ -2,6 +2,30 @@
 [ ] - try to solve the Evaluate Reverse Polish Notation problem with recursion.
 
 # Problems
+## longest common subsequence
+- you were really close, but when the two chars are the same, it's just the same as the DP[i-1][j-1]. Otherwise you double count.
+
+## find target sum ways
+- you need to transform the problem into a find the positive elements such that their sum is X.
+- to acheive this we need to work with expressions, that we define as the expressions that *give us the answer*.
+- therefore we need to find an expression for X. That expression is $ \frac{S - T}{2} $
+- why though? Because let S be the *SUM* of all of the (positive) numbers in the array. Let T be the target. Let X be the *SUM* of all (non negative) numbers in the array, *such that* they are the numbers that are prefixed with '-'. We now that:
+$ S - X - X = T$, we decresase by X twice because the numbers prefixed with '-' are counted in the S as '+', so the first X just zeros them out, and the second one actually gives us the target. From that we can easily see the final expression.
+- Notice that we have an expression with S and T, which are both *known* at the start.
+- *Edge Cases*: Notice how from the expression, S - T = 2X, meaning it *MUST* be an even number. We can check that at the start.
+- Notice also, from the definition of X, it consists of only positive numbers from the array, so we don't need to work with '-' anymore.
+- Therefore we transformed the problem to:  
+    find a sum of numbers in the array that gives (S-T)/2.
+Which is an easier problem, that we can solve with DP.
+- DP(n,s). Where size of the number array, and s is the target sum.
+- *REMEMBER* you are looking for a count!
+- base case for DP(0,0) is 1. Becuase we have 0 numbers, and a target of 0, so there is 1 way to acheive that, don't pick anything.
+- DP(0,k) for 0 <= k <= s is 0. Because we can't get a target bigger than zero with zero numbers.
+- From then on it's: DP(i, j) = DP(i - 1, j) + DP(i - 1, j - nums[i-1]). Because for the problem of i numbers and target j, we have the number of solutions, that is the same as for i-1 numbers and target j (if we don't add j). And if *can* add j (if j - nums[i-1] >= 0), then it's the same as the sum of without j, and with j.
+- if we *cant* add that number than it's only DP(i, j) = DP(i - 1, j).
+- The reason it's nums[i-1] and not nums[i], is because when we are on the i'th row, we are working with the i'th +1 number (because of that base case row).
+- the expression DP(i - 1, j - nums[i-1]), is because we are looking at the number of way, we're counting, so the number of ways for i,j is the same as for that. We are inherating everey single way that was already discovered. Think about the last problem, the DP(n,k). it is inherating the number of ways up until it.
+
 ## Print in Order
 * If you don't broadcast the signal you will get a deadlock.
 * why? Well, if thread 2 and 3 already hit the Cond.wait(). And only now thread 1 comes and calls signal. Thread 3 (not 2) wakes up, and only it
